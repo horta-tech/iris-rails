@@ -3,7 +3,7 @@ RSpec.describe Iris do
     expect(Iris::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "performs" do
+    expect(Iris.perform).to eq("performing")
   end
 end
