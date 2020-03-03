@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "iris/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "iris"
+  spec.name          = "iris_rails"
   spec.version       = Iris::VERSION
   spec.authors       = ["Rayan Castro"]
   spec.email         = ["rayancdc@gmail.com"]
