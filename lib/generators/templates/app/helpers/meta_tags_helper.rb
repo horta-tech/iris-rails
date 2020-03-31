@@ -1,5 +1,5 @@
 module MetaTagsHelper
-  def iris_meta_tags(meta_tags)
+  def iris_meta_tags(meta_tags = {})
     [
       set_title(meta_tags[:head_title]),
       meta_title(meta_tags[:head_title]),

@@ -8,13 +8,13 @@ module Iris
       desc "Creates iris initializer, controllers, views, and routes."
       def install
         # Create initializer
-        copy_file "config/initializers/iris-rails.rb", "config/initializers/iris-rails.rb"
+        copy_file "config/initializers/iris_rails.rb", "config/initializers/iris_rails.rb"
 
         # Create controllers
-        directory "app/controllers/iris-rails", "app/controllers/iris-rails"
+        directory "app/controllers/iris_rails", "app/controllers/iris_rails"
 
         # Create views
-        directory "app/views/iris-rails", "app/views/iris-rails"
+        directory "app/views/iris_rails", "app/views/iris_rails"
 
         # Create helper
         directory "app/helpers/meta_tags_helper", "app/helpers/meta_tags_helper"
@@ -30,7 +30,7 @@ module Iris
           end
         }
 
-        puts "Success! Configure your API token in config/initializers/iris-rails.rb, restart your server, and view your blog at /blog"
+        puts "Success! Configure your API token in config/initializers/iris_rails.rb, restart your server, and view your blog at /blog"
       end
     end
   end

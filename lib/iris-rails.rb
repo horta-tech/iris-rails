@@ -49,30 +49,12 @@ module IrisRails
 
   class Post
     @headers = {'Content-Type':'application/x-www-form-urlencoded'}
-    attr_accessor :main_title
-    attr_accessor :slug
-    attr_accessor :created_at
-    attr_accessor :updated_at
-    attr_accessor :banner_image
-    attr_accessor :banner_text
-    attr_accessor :secondary_title
-    attr_accessor :first_introduction
-    attr_accessor :internal_links
-    attr_accessor :second_introduction
-    attr_accessor :call_to_action_content
-    attr_accessor :call_to_action_link
-    attr_accessor :call_to_action_link_description
-    attr_accessor :closure_text
-    attr_accessor :published
-    attr_accessor :keyphrase
-    attr_accessor :meta_description
-    attr_accessor :seo_title
-    attr_accessor :publish_date
-    attr_accessor :published_at
-    attr_accessor :score
-    attr_accessor :author_id
-    attr_accessor :author
-    attr_accessor :ordered_topics
+    attr_accessor :main_title, :slug, :created_at, :updated_at, :banner_image,
+                  :banner_text, :secondary_title, :first_introduction, :internal_links,
+                  :second_introduction, :call_to_action_content, :call_to_action_link,
+                  :call_to_action_link_description, :closure_text, :published, :keyphrase,
+                  :meta_description, :seo_title, :publish_date, :published_at, :score,
+                  :author_id, :author, :ordered_topics
 
     def initialize(attr = {})
       @main_title = attr["main_title"]
