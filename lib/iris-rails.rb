@@ -29,23 +29,23 @@ module IrisRails
     "performing"
   end
 
-	class Account
-		attr_accessor :account_name
-		attr_accessor :template
-		attr_accessor :type
-		attr_accessor :account_title
-		attr_accessor :account_description
-		attr_accessor :account_keyword
+  class Account
+    attr_accessor :account_name
+    attr_accessor :template
+    attr_accessor :type
+    attr_accessor :account_title
+    attr_accessor :account_description
+    attr_accessor :account_keyword
 
-		def initialize(attr = {})
+    def initialize(attr = {})
       @account_name = attr[:account_name]
       @template = attr[:template]
       @type = attr[:type]
       @account_title = attr[:account_title]
       @account_description = attr[:account_description]
       @account_keyword = attr[:account_keyword]
-		end
-	end
+    end
+  end
 
   class Post
     @headers = {'Content-Type':'application/x-www-form-urlencoded'}
@@ -72,7 +72,7 @@ module IrisRails
     attr_accessor :score
     attr_accessor :author_id
     attr_accessor :author
-		attr_accessor :ordered_topics
+    attr_accessor :ordered_topics
 
     def initialize(attr = {})
       @main_title = attr["main_title"]
@@ -98,7 +98,7 @@ module IrisRails
       @score = attr["score"]
       @author_id = attr["author_id"]
       @author = attr["author"]
-			@ordered_topics = attr["ordered_topics"]
+      @ordered_topics = attr["ordered_topics"]
     end
 
     def self.find(slug)
@@ -107,16 +107,16 @@ module IrisRails
       response = JSON.parse(response.body)
       puts 'data'
       post = self.new(response['data'])
-			related_posts = []
-			response['related_posts'].each do |related_post|
-				related_posts << self.new(related_post)
-			end
-			post.author = response['data']['author']
-			account = IrisRails::Account.new(
-				{account_name: response['account_name'],
-				template: response['template']}
-			)
-			return post, related_posts, account
+      related_posts = []
+      response['related_posts'].each do |related_post|
+        related_posts << self.new(related_post)
+      end
+      post.author = response['data']['author']
+      account = IrisRails::Account.new(
+        {account_name: response['account_name'],
+        template: response['template']}
+      )
+      return post, related_posts, account
     end
 
     def self.all
@@ -124,18 +124,18 @@ module IrisRails
       response = RestClient.get(url, @headers)
       response = JSON.parse(response.body)
       puts response
-			posts = []
-			response['data'].each do |post|
-				posts << self.new(post)
-			end
-			account = IrisRails::Account.new(
-				{account_name: response['account_name'],
-				template: response['template'],
-				account_title: response['account_title'],
-				account_description: response['account_description'],
-				account_keyword: response['account_keyword']}
-			)
-			return posts, account
+      posts = []
+      response['data'].each do |post|
+        posts << self.new(post)
+      end
+      account = IrisRails::Account.new(
+        {account_name: response['account_name'],
+        template: response['template'],
+        account_title: response['account_title'],
+        account_description: response['account_description'],
+        account_keyword: response['account_keyword']}
+      )
+      return posts, account
     end
   end
 end

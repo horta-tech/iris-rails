@@ -1,14 +1,14 @@
 module MetaTagsHelper
-	def iris_meta_tags(meta_tags)
-		[
-			set_title(meta_tags[:head_title]),
-			meta_title(meta_tags[:head_title]),
-			meta_description(meta_tags[:meta_description]),
-			meta_keywords(meta_tags[:meta_keywords])
-		].join("\n").html_safe
-	end
+  def iris_meta_tags(meta_tags)
+    [
+      set_title(meta_tags[:head_title]),
+      meta_title(meta_tags[:head_title]),
+      meta_description(meta_tags[:meta_description]),
+      meta_keywords(meta_tags[:meta_keywords])
+    ].join("\n").html_safe
+  end
 
-	private
+  private
 
   def set_title(given_title)
     content_for?(:title) ? content_tag(:title, 'Iris | ' + content_for(:title)) : (content_tag(:title, given_title) if !given_title.empty?)

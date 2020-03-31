@@ -24,10 +24,10 @@ module Iris
 
         # Add routes
         route %{
-					scope :module => 'iris_rails' do
-						get '/blog' => 'posts#index', :as => :iris_blog
-						get '/blog/:slug' => 'posts#show', :as => :iris_post
-					end
+          scope :module => 'iris_rails' do
+            get '/blog' => 'posts#index', :as => :iris_blog
+            get '/blog/:slug' => 'posts#show', :as => :iris_post
+          end
         }
 
         puts "Success! Configure your API token in config/initializers/iris-rails.rb, restart your server, and view your blog at /blog"
