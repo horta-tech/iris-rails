@@ -9,7 +9,7 @@
         <h1 class="sub-title"><%= @account.account_name %></h1>
       </div>
       <div class="blog_grid">
-        <% @posts.first(3).each do |post| %>
+        <% @first_posts.each do |post| %>
           <a href='<%= "/blog/#{post.slug}" %> '>
             <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
               <div class="banner-info">
@@ -28,7 +28,7 @@
         <h2 class="sub-title">EM DESTAQUE</h2>
       </div>
       <div class="highlighted-posts">
-        <% @posts[3, 3].each do |post| %>
+        <% @highlighted_posts.each do |post| %>
           <a href='<%= "/blog/#{post.slug}" %> '>
             <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
               <div class="banner-info">
@@ -47,7 +47,7 @@
         <h2 class="sub-title">MAIS NOTÍCIAS</h2>
       </div>
       <div class="more-posts">
-        <% @posts[6, @posts.size - 6 - @last3].each do |post| %>
+        <% @more_posts.each do |post| %>
           <a href='<%= "/blog/#{post.slug}" %> '>
             <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
               <div class="banner-info">
@@ -61,7 +61,7 @@
         <% end %>
       </div>
       <div class="last-three-posts">
-        <% @posts[@posts.size - 3, @last3].each do |post| %>
+        <% @last_posts.each do |post| %>
           <a href='<%= "/blog/#{post.slug}" %> '>
             <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
               <div class="banner-info">

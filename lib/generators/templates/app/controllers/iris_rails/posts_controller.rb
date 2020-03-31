@@ -2,9 +2,11 @@ class IrisRails::PostsController < IrisRails::BaseController
   def index
     response = IrisRails::Post.all
     @posts, @account = response
-    if @posts.length.odd?
-      @last3 = 3
-    end
+
+    @first_posts = @posts.first(3)
+    @highlighted_posts = @posts[3, 3]
+    @more_posts = @posts[6, @posts.size - (@posts.length.odd? ? 9 : 6)]
+    @last_posts = @posts.length.odd? ? @posts.last(3) : []
   end
 
   def show
