@@ -3,91 +3,91 @@
 <% content_for :meta_keywords, @post.keyphrase %>
 
 <main id="blog" style="opacity: 1; transition: all 1s ease 0s;">
-	<article id="iris-main-container">
-		<header class="post_banner">
-			<img src=<%= @post.banner_image['url'] %> alt='<%= "#{@account.account_name} | #{@post.keyphrase} | #{@post.main_title}" %>' class="banner_background"/>
-			<div class="banner_content">
-				<div class="author-and-description">
-					<p>Publicado por <%= @author %></p>
-					<p>Atualizado em <%= @post.updated_at.to_time.strftime '%e/%m/%Y %r' %></p>
-				</div>
-				<hr>
-				<h1 class="main_title"><%= @post.main_title %></h1>
-				<p class="banner_text"><%= @post.banner_text %></p>
-			</div>
-		</header>
-		<div class="post-grid">
-			<section class="post-wrapper">
-				<div class="introduction">
-					<h2 class="secondary_title"><%= @post.secondary_title %></h2>
-					<p class="first_introduction"><%= @post.first_introduction.gsub(/div/, 'span').html_safe %></p>
-					<ul class="internal_links_list">
-						<% @post.internal_links.each do |internal_link| %>
-							<li class="internal_links_item">
-								<a class="internal_link" target="_blank" href=<%= internal_link['url'].html_safe %> ><%= internal_link['text'].html_safe %></a>
-							</li>
-						<% end %>
-					</ul>
-					<p class="second_introduction"><%= @post.second_introduction.gsub(/div/, 'span').html_safe %></p>
-				</div>
-				<div class="topics">
-					<% @post.ordered_topics.each do |topic| %>
-						<div class="topic">
-							<% if topic['image']['url'] %>
-								<img class="topic_image" src="<%= topic['image']['url'] %>"
-									<% if topic['label'] %>
-										alt="<%= topic['label'] %>"
-									<% else %>
-										alt="<%= topic['image']['url'].split(/\/|\./)[-2] %>"
-									<% end %>
-									title='<%= topic['image']['url'].split(/\/|\./)[-2] %>'
-								/>
-							<% end %>
-							<% if topic['label'] %>
-								<p class="image-label"><%= render html: topic['label'].html_safe %></p>
-							<% end %>
-							<% if topic['title'] %>
-								<h3 class="topic_title"><%= topic['title'] %></h3>
-							<% end %>
-							<p class="topic_content"><%= topic['content'].gsub(/div/, 'span').html_safe %></p>
-						</div>
-					<% end %>
-				</div>
-				<% if @post.call_to_action_content %>
-					<div class="call-to-action">
-						<div class="cta-wrapper">
-							<p class="cta_content"><%= @post.call_to_action_content.html_safe %></p>
-							<a class="cta-link" href="<%= @post.call_to_action_link %>">
-								<button class="cta-button">
-									<%= @post.call_to_action_link_description %>
-								</button>
-							</a>
-						</div>
-					</div>
-				<% end %>
-				<% if @post.closure_text %>
-					<div class="closure">
-						<p class="closure_text"><%= @post.closure_text %></p>
-					</div>
-				<% end %>
-			</section>
-			<section class="last_posts">
-				<% @related_posts.each do |related_post| %>
-					<aside class="small_post_banner">
-						<a href='<%= "/blog/#{related_post.slug}" %>' >
-							<img src="<%= related_post.banner_image %>" alt='<%= "#{@account.account_name} | #{related_post.main_title}" %>'>
-							<p class="published">
-								Atualizado em <%= related_post.updated_at.to_time.strftime '%e/%m/%Y' %>
-							</p>
-							<div class="small_post_content">
-								<h3>
-									<%= related_post.main_title %>
-								</h3>
-							</div>
-						</a>
-					</aside>
-				<% end %>
-			</section>
-		</div>
-	</article>
+  <article id="iris-main-container">
+    <header class="post_banner">
+      <img src=<%= @post.banner_image['url'] %> alt='<%= "#{@account.account_name} | #{@post.keyphrase} | #{@post.main_title}" %>' class="banner_background"/>
+      <div class="banner_content">
+        <div class="author-and-description">
+          <p>Publicado por <%= @author %></p>
+          <p>Atualizado em <%= @post.updated_at.to_time.strftime '%e/%m/%Y %r' %></p>
+        </div>
+        <hr>
+        <h1 class="main_title"><%= @post.main_title %></h1>
+        <p class="banner_text"><%= @post.banner_text %></p>
+      </div>
+    </header>
+    <div class="post-grid">
+      <section class="post-wrapper">
+        <div class="introduction">
+          <h2 class="secondary_title"><%= @post.secondary_title %></h2>
+          <p class="first_introduction"><%= @post.first_introduction.gsub(/div/, 'span').html_safe %></p>
+          <ul class="internal_links_list">
+            <% @post.internal_links.each do |internal_link| %>
+              <li class="internal_links_item">
+                <a class="internal_link" target="_blank" href=<%= internal_link['url'].html_safe %> ><%= internal_link['text'].html_safe %></a>
+              </li>
+            <% end %>
+          </ul>
+          <p class="second_introduction"><%= @post.second_introduction.gsub(/div/, 'span').html_safe %></p>
+        </div>
+        <div class="topics">
+          <% @post.ordered_topics.each do |topic| %>
+            <div class="topic">
+              <% if topic['image']['url'] %>
+                <img class="topic_image" src="<%= topic['image']['url'] %>"
+                  <% if topic['label'] %>
+                    alt="<%= topic['label'] %>"
+                  <% else %>
+                    alt="<%= topic['image']['url'].split(/\/|\./)[-2] %>"
+                  <% end %>
+                  title='<%= topic['image']['url'].split(/\/|\./)[-2] %>'
+                />
+              <% end %>
+              <% if topic['label'] %>
+                <p class="image-label"><%= render html: topic['label'].html_safe %></p>
+              <% end %>
+              <% if topic['title'] %>
+                <h3 class="topic_title"><%= topic['title'] %></h3>
+              <% end %>
+              <p class="topic_content"><%= topic['content'].gsub(/div/, 'span').html_safe %></p>
+            </div>
+          <% end %>
+        </div>
+        <% if @post.call_to_action_content %>
+          <div class="call-to-action">
+            <div class="cta-wrapper">
+              <p class="cta_content"><%= @post.call_to_action_content.html_safe %></p>
+              <a class="cta-link" href="<%= @post.call_to_action_link %>">
+                <button class="cta-button">
+                  <%= @post.call_to_action_link_description %>
+                </button>
+              </a>
+            </div>
+          </div>
+        <% end %>
+        <% if @post.closure_text %>
+          <div class="closure">
+            <p class="closure_text"><%= @post.closure_text %></p>
+          </div>
+        <% end %>
+      </section>
+      <section class="last_posts">
+        <% @related_posts.each do |related_post| %>
+          <aside class="small_post_banner">
+            <a href='<%= "/blog/#{related_post.slug}" %>' >
+              <img src="<%= related_post.banner_image %>" alt='<%= "#{@account.account_name} | #{related_post.main_title}" %>'>
+              <p class="published">
+                Atualizado em <%= related_post.updated_at.to_time.strftime '%e/%m/%Y' %>
+              </p>
+              <div class="small_post_content">
+                <h3>
+                  <%= related_post.main_title %>
+                </h3>
+              </div>
+            </a>
+          </aside>
+        <% end %>
+      </section>
+    </div>
+  </article>
 </main>
