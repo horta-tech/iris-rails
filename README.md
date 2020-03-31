@@ -9,7 +9,7 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'iris'
+gem 'iris-rails'
 ```
 
 And then execute:
@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Or install it yourself as:
+
+    $ rails install:iris-rails
 
 ## Development
 
