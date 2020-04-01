@@ -17,10 +17,10 @@ module Iris
         directory "app/views/iris_rails", "app/views/iris_rails"
 
         # Create helper
-        copy_file "app/helpers/meta_tags_helper", "app/helpers/meta_tags_helper"
+        copy_file "app/helpers/meta_tags_helper.rb", "app/helpers/meta_tags_helper.rb"
 
-        # Create helper
-        copy_file "../lib/iris_rails.rb", "../lib/iris_rails.rb"
+        # Create iris_rails model
+        copy_file "../lib/iris_rails.rb", "lib/iris_rails.rb"
 
         # Create default layout
         # directory "app/views/layouts/iris", "app/views/layouts/iris"
