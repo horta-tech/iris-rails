@@ -25,6 +25,7 @@ Or install it yourself as:
 Or install it yourself as:
 
     $ rails install:iris-rails
+    rails generate iris:install 
 
 ## Development
 
