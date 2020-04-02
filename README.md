@@ -74,7 +74,8 @@ Iris_Rails uses a helper method to define title, meta tags (meta title, meta des
 
 Insert your website title in `INSERT_WEBSITE_TITLE`, meta_description in `INSERT_WEBSITE_META_DESCRIPTION` and meta_keywords in `INSERT_WEBSITE_META_KEYWORDS`. Don't create a tag with these attributes if you are using the method iris_meta_tags because duplicated attributes lower the SEO score. If you don't have these attributes, just leave it as a whitespace ("").
 
-Now start your server to view your blog.
+Now start your server and to view your blog just access YOUR_URL/blog.
+Reminder, you have to add posts to your blog in Iris website www.iriseo.com.
 
 ## Development
 
