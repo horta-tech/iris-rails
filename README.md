@@ -14,11 +14,15 @@ gem 'iris_rails'
 
 And then execute:
 
+```ruby
     $ bundle
+```
 
 Or install it yourself as:
 
+```ruby
     $ gem install iris_rails
+```
 
 ## Usage
 
@@ -70,18 +74,14 @@ Define in `app/controllers/iris_rails/base_controller.rb` the layout you will us
 
 Iris_Rails uses a helper method to define title, meta tags (meta title, meta description and meta keywords) and use CSS with the template defined in iris website (iriseo.com). Make sure you select the template in iris.com/settings so your blog has a nice look! Add the lines below to the layout you will use and and set title and meta tags of your website.
 
-<%= iris_meta_tags ( head_title: `INSERT_WEBSITE_TITLE`, meta_description: `INSERT_WEBSITE_META_DESCRIPTION`, meta_keywords: `INSERT_WEBSITE_META_KEYWORDS` ) %>
+```ruby
+iris_meta_tags ( head_title: `INSERT_WEBSITE_TITLE`, meta_description: `INSERT_WEBSITE_META_DESCRIPTION`, meta_keywords: `INSERT_WEBSITE_META_KEYWORDS` )
+```
 
-Insert your website title in `INSERT_WEBSITE_TITLE`, meta_description in `INSERT_WEBSITE_META_DESCRIPTION` and meta_keywords in `INSERT_WEBSITE_META_KEYWORDS`. Don't create a tag with these attributes if you are using the method iris_meta_tags because duplicated attributes lower the SEO score. If you don't have these attributes, just leave it as a whitespace ("").
+Insert your website title in `INSERT_WEBSITE_TITLE`, meta_description in `INSERT_WEBSITE_META_DESCRIPTION` and meta_keywords in `INSERT_WEBSITE_META_KEYWORDS`. Don't create a tag with these attributes if you are using the method iris_meta_tags because duplicated attributes lower the SEO score. If you don't have these attributes, just leave it as a whitespace.
 
 Now start your server and to view your blog just access YOUR_URL/blog.
 Reminder, you have to add posts to your blog in Iris website www.iriseo.com.
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
