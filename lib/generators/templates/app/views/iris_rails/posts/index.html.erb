@@ -1,6 +1,8 @@
 <% content_for :title, @account.account_title %>
+<% content_for :account_name, @account.account_name %>
 <% content_for :meta_description, @account.account_description %>
 <% content_for :meta_keywords, @account.account_keyword %>
+<% content_for :iris_css, @account.template %>
 
 <div id="blog">
   <div id="iris-main-container">
@@ -9,7 +11,7 @@
         <h1 class="sub-title"><%= @account.account_name %></h1>
       </div>
       <div class="blog_grid">
-        <% @first_posts.each do |post| %>
+        <% @first_posts&.each do |post| %>
           <a href='<%= "/blog/#{post.slug}" %> '>
             <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
               <div class="banner-info">
@@ -24,56 +26,60 @@
       </div>
     </section>
     <section>
-      <div class="sub-title-div">
-        <h2 class="sub-title">EM DESTAQUE</h2>
-      </div>
-      <div class="highlighted-posts">
-        <% @highlighted_posts.each do |post| %>
-          <a href='<%= "/blog/#{post.slug}" %> '>
-            <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
-              <div class="banner-info">
-                <p class="updatedinfo">Atualizado em <%= post.updated_at.to_time.strftime '%e/%m/%Y' %></p>
-                <hr>
-                <h3><%= post.main_title %></h3>
+      <% if @highlighted_posts %>
+        <div class="sub-title-div">
+          <h2 class="sub-title">EM DESTAQUE</h2>
+        </div>
+        <div class="highlighted-posts">
+          <% @highlighted_posts.each do |post| %>
+            <a href='<%= "/blog/#{post.slug}" %> '>
+              <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
+                <div class="banner-info">
+                  <p class="updatedinfo">Atualizado em <%= post.updated_at.to_time.strftime '%e/%m/%Y' %></p>
+                  <hr>
+                  <h3><%= post.main_title %></h3>
+                </div>
               </div>
-            </div>
-            <p class="description"><%= post.secondary_title %></p>
-          </a>
-        <% end %>
-      </div>
+              <p class="description"><%= post.secondary_title %></p>
+            </a>
+          <% end %>
+        </div>
+      <% end %>
     </section>
     <section>
-      <div class="sub-title-div">
-        <h2 class="sub-title">MAIS NOTÍCIAS</h2>
-      </div>
-      <div class="more-posts">
-        <% @more_posts.each do |post| %>
-          <a href='<%= "/blog/#{post.slug}" %> '>
-            <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
-              <div class="banner-info">
-                <p class="updatedinfo">Atualizado em <%= post.updated_at.to_time.strftime '%e/%m/%Y' %></p>
-                <hr>
-                <h3><%= post.main_title %></h3>
+      <% if @more_posts || @last_posts %>
+        <div class="sub-title-div">
+          <h2 class="sub-title">MAIS NOTÍCIAS</h2>
+        </div>
+        <div class="more-posts">
+          <% @more_posts&.each do |post| %>
+            <a href='<%= "/blog/#{post.slug}" %> '>
+              <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
+                <div class="banner-info">
+                  <p class="updatedinfo">Atualizado em <%= post.updated_at.to_time.strftime '%e/%m/%Y' %></p>
+                  <hr>
+                  <h3><%= post.main_title %></h3>
+                </div>
               </div>
-            </div>
-            <p class="description"><%= post.secondary_title %></p>
-          </a>
-        <% end %>
-      </div>
-      <div class="last-three-posts">
-        <% @last_posts.each do |post| %>
-          <a href='<%= "/blog/#{post.slug}" %> '>
-            <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
-              <div class="banner-info">
-                <p class="updatedinfo">Atualizado em <%= post.updated_at.to_time.strftime '%e/%m/%Y' %></p>
-                <hr>
-                <h3><%= post.main_title %></h3>
+              <p class="description"><%= post.secondary_title %></p>
+            </a>
+          <% end %>
+        </div>
+        <div class="last-three-posts">
+          <% @last_posts&.each do |post| %>
+            <a href='<%= "/blog/#{post.slug}" %> '>
+              <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
+                <div class="banner-info">
+                  <p class="updatedinfo">Atualizado em <%= post.updated_at.to_time.strftime '%e/%m/%Y' %></p>
+                  <hr>
+                  <h3><%= post.main_title %></h3>
+                </div>
               </div>
-            </div>
-            <p class="description"><%= post.secondary_title %></p>
-          </a>
-        <% end %>
-      </div>
+              <p class="description"><%= post.secondary_title %></p>
+            </a>
+          <% end %>
+        </div>
+      <% end %>
     </section>
   </div>
 </div>

@@ -6,7 +6,12 @@ class IrisRails::PostsController < IrisRails::BaseController
     @first_posts = @posts.first(3)
     @highlighted_posts = @posts[3, 3]
     @more_posts = @posts[6, @posts.size - (@posts.length.odd? ? 9 : 6)]
-    @last_posts = @posts.length.odd? ? @posts.last(3) : []
+    if @posts.length.odd? && (@posts.length >= 9)
+      @last_posts = @posts.last(3)
+    elsif @posts.length == 7
+      @last_posts = []
+      @last_posts << @posts.last
+    end
   end
 
   def show
