@@ -5,6 +5,7 @@ module MetaTagsHelper
       meta_title(meta_tags[:head_title]),
       meta_description(meta_tags[:meta_description]),
       meta_keywords(meta_tags[:meta_keywords]),
+      meta_author(meta_tags[:meta_author]),
       set_iris_css
     ].join("\n").html_safe
   end
@@ -25,6 +26,10 @@ module MetaTagsHelper
 
   def meta_keywords(given_meta_keywords)
     content_for?(:meta_keywords) ? tag('meta', name: 'keywords', :content => content_for(:meta_keywords)) : (tag('meta', :name => 'keywords', :content => given_meta_keywords) if !given_meta_keywords.empty?)
+  end
+
+  def meta_author(given_meta_author)
+    content_for?(:meta_author) ? tag('meta', name: 'author', :content => content_for(:meta_author)) : (tag('meta', :name => 'author', :content => given_meta_author) if !given_meta_author.empty?)
   end
 
   def set_iris_css

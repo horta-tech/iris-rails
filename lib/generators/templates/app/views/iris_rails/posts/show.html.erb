@@ -1,8 +1,9 @@
-<% content_for :title, @post.main_title %>
-<% content_for :account_name, @account.account_name %>
-<% content_for :meta_description, @post.meta_description %>
-<% content_for :meta_keywords, @post.keyphrase %>
-<% content_for :iris_css, @account.template %>
+<% content_for :title, @post.main_title 
+content_for :account_name, @account.account_name
+content_for :meta_description, @post.meta_description
+content_for :meta_keywords, @post.keyphrase
+content_for :meta_author, @account.account_author
+content_for :iris_css, @account.template %>
 
 <main id="blog" style="opacity: 1; transition: all 1s ease 0s;">
   <article id="iris-main-container">
