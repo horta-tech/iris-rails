@@ -13,7 +13,7 @@ module MetaTagsHelper
   private
 
   def set_title(given_title)
-    content_for?(:title) ? content_tag(:title, content_for?(:account_name) + ' | ' + content_for(:title)) : (content_tag(:title, given_title) if !given_title.empty?)
+    content_for?(:title) ? content_tag(:title, content_for(:account_name) + ' | ' + content_for(:title)) : (content_tag(:title, given_title) if !given_title.empty?)
   end
 
   def meta_title(given_meta_title)

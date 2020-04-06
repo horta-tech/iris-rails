@@ -24,7 +24,7 @@ class IrisRails::PostsController < IrisRails::BaseController
 
   def author_name_or_email(author)
     if author['first_name'] || author['last_name']
-      "#{author['first_name'] } #{author['last_name'] }"
+      "#{ author['first_name'] } #{ author['last_name'] }"
     else
       author['email']
     end
