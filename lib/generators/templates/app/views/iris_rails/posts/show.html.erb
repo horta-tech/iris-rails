@@ -70,7 +70,7 @@ content_for :iris_css, @account.template %>
         <% end %>
         <% if @post.closure_text %>
           <div class="closure">
-            <p class="closure_text"><%= @post.closure_text %></p>
+            <p class="closure_text"><%= @post.closure_text.html_safe %></p>
           </div>
         <% end %>
       </section>
