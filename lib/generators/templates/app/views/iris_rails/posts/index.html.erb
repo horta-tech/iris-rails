@@ -13,7 +13,7 @@ content_for :iris_css, @account.template %>
       <div class="blog_grid">
         <% @first_posts&.each do |post| %>
           <a href='<%= "/blog/#{post.slug}" %> '>
-            <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
+            <div class="post-div lazyload" style="background-image: url(<%= post.banner_image['url'] %>);">
               <div class="banner-info">
                 <p class="updatedinfo">Atualizado em <%= post.updated_at.to_time.strftime '%e/%m/%Y' %></p>
                 <hr>
@@ -33,7 +33,7 @@ content_for :iris_css, @account.template %>
         <div class="highlighted-posts">
           <% @highlighted_posts.each do |post| %>
             <a href='<%= "/blog/#{post.slug}" %> '>
-              <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
+              <div class="post-div lazyload" style="background-image: url(<%= post.banner_image['url'] %>);">
                 <div class="banner-info">
                   <p class="updatedinfo">Atualizado em <%= post.updated_at.to_time.strftime '%e/%m/%Y' %></p>
                   <hr>
@@ -54,7 +54,7 @@ content_for :iris_css, @account.template %>
         <div class="more-posts">
           <% @more_posts&.each do |post| %>
             <a href='<%= "/blog/#{post.slug}" %> '>
-              <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
+              <div class="post-div lazyload" style="background-image: url(<%= post.banner_image['url'] %>);">
                 <div class="banner-info">
                   <p class="updatedinfo">Atualizado em <%= post.updated_at.to_time.strftime '%e/%m/%Y' %></p>
                   <hr>
@@ -68,7 +68,7 @@ content_for :iris_css, @account.template %>
         <div class="last-three-posts">
           <% @last_posts&.each do |post| %>
             <a href='<%= "/blog/#{post.slug}" %> '>
-              <div class="post-div" style="background-image: url(<%= post.banner_image['url'] %>);">
+              <div class="post-div lazyload" style="background-image: url(<%= post.banner_image['url'] %>);">
                 <div class="banner-info">
                   <p class="updatedinfo">Atualizado em <%= post.updated_at.to_time.strftime '%e/%m/%Y' %></p>
                   <hr>
